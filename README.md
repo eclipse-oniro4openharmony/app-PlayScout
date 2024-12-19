@@ -1,2 +1,3 @@
 # app-PlayScout
-An App to explore and download free games.
+## Introduction
+Explore and download free games effortlessly. Your gateway to endless gaming adventures!
