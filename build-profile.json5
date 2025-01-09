@@ -4,13 +4,13 @@
       {
         "name": "default",
         "material": {
-          "certpath": "C:/Users/c84381641/.ohos/config/openharmony/default_app-PlayScout_tlJ51jaj2n91ZY3GuJA5gbECM4kyPhZrBSYZiUZF_rY=.cer",
-          "storePassword": "0000001BE86E8B76778B22696313588C57186757C2079D76573A7B74CB7DF0F9AFF211EE09C047144679F0",
+          "certpath": "./.secret/oniro-ci.cer",
+          "storePassword": "0000001BD5A16C997F0EF958596A946A060A50ED61DF4D945A74AB3C462CBCFBE5BA90427A3DEAC0D27D3E",
           "keyAlias": "debugKey",
-          "keyPassword": "0000001B04A847B693C6C89AAEC8E400E680740314AB26384D732617B47558C8F698920DD8E1938E816BE6",
-          "profile": "C:/Users/c84381641/.ohos/config/openharmony/default_app-PlayScout_tlJ51jaj2n91ZY3GuJA5gbECM4kyPhZrBSYZiUZF_rY=.p7b",
+          "keyPassword": "0000001BACA49D623B16BE8A9C4C216A9ED64244F7255BC9AEF8C862264DDA900496AD36202857353771E8",
+          "profile": "./.secret/oniro-ci.p7b",
           "signAlg": "SHA256withECDSA",
-          "storeFile": "C:/Users/c84381641/.ohos/config/openharmony/default_app-PlayScout_tlJ51jaj2n91ZY3GuJA5gbECM4kyPhZrBSYZiUZF_rY=.p12"
+          "storeFile": "./.secret/oniro-ci.p12"
         }
       }
     ],
