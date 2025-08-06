@@ -1,7 +1,4 @@
 import { GameDetails } from '../model/game';
-import hilog from '@ohos.hilog';
-import router from '@ohos.router';
-import promptAction from '@ohos.promptAction';
 
 @Entry
 @Component
@@ -39,7 +36,7 @@ struct StarPage {
                     .fontSize(20)
                     .fontWeight(600)
                     .onClick(() => {
-                      router.pushUrl({
+                      this.getUIContext().getRouter().pushUrl({
                         url: 'pages/GameDetail',
                         params: {
                           game_id: item.id
@@ -61,7 +58,7 @@ struct StarPage {
                           value: 'Confirm',
                           action: () => {
                             this.staredGames = this.staredGames.filter((staredItem) => staredItem.id !== item.id)
-                            promptAction.showToast({
+                            this.getUIContext().getPromptAction().showToast({
                               message: "Game removed!"
                             })
                           }
@@ -143,7 +140,7 @@ struct StarPage {
                         .width('100%')
                         .margin(10)
                         .onClick(() => {
-                          router.pushUrl({
+                          this.getUIContext().getRouter().pushUrl({
                             url: 'pages/GameDetail',
                             params: {
                               game_id: item.id

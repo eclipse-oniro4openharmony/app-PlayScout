@@ -1,5 +1,3 @@
-import { DEFAULT } from '@ohos/hypium'
-
 enum Tag {
   mmorpg,
   shooter,

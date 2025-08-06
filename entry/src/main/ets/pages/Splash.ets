@@ -1,4 +1,3 @@
-import router from '@ohos.router';
 import { registerAllFonts } from '../font/registerFonts';
 
 @Entry
@@ -11,12 +10,12 @@ struct Splash {
   }
 
   onPageShow(): void {
-    animateTo({
+    this.getUIContext().animateTo({
       duration: 2000,
       onFinish:()=>{
         //when the animation finish go the main page
         setTimeout(()=>{
-          router.replaceUrl({url: 'pages/Index'})
+          this.getUIContext().getRouter().replaceUrl({url: 'pages/Index'})
         }, 200)
       }
     }, () => {

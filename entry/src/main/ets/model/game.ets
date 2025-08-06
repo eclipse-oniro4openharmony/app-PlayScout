@@ -1,6 +1,3 @@
-import Platform from '../enum/platform'
-import Tag from '../enum/tag'
-
 class Game {
   id: number = 0
   title: string = ''

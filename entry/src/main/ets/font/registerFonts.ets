@@ -1,6 +1,6 @@
 //Extract the registry of fonts into a method
-import font from '@ohos.font';
 import { fonts, Font } from './fonts';
+import { font } from '@kit.ArkUI';
 
 export const registerAllFonts = () => {
 
