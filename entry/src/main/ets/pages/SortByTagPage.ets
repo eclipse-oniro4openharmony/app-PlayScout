@@ -1,5 +1,4 @@
 import { Game } from '../model/game';
-import router from '@ohos.router';
 import { GameDataSource } from '../data/DataSource';
 import { HttpErrorComponent, LoadComponent } from '../Component/components';
 
@@ -19,7 +18,7 @@ struct SortByTagPage {
 
   aboutToAppear(): void {
     this.isLoading = true;
-    const params: RouterParams = router.getParams() as RouterParams;
+    const params: RouterParams = this.getUIContext().getRouter().getParams() as RouterParams;
     this.tag = params.tag
 
     const source = new GameDataSource();
@@ -80,7 +79,7 @@ struct SortByTagPage {
                   Image(`${item.thumbnail}`)
                     .height('100%')
                     .onClick(() => {
-                      router.pushUrl({
+                      this.getUIContext().getRouter().pushUrl({
                         url: 'pages/GameDetail',
                         params: {
                           game_id: item.id
@@ -93,7 +92,7 @@ struct SortByTagPage {
                     .fontWeight(700)
                     .fontSize(20)
                     .onClick(() => {
-                      router.pushUrl({
+                      this.getUIContext().getRouter().pushUrl({
                         url: 'pages/GameDetail',
                         params: {
                           game_id: item.id
@@ -109,7 +108,7 @@ struct SortByTagPage {
                     .borderWidth(1)
                     .backgroundColor('#3b000000')
                     .onClick(() => {
-                      router.pushUrl({
+                      this.getUIContext().getRouter().pushUrl({
                         url: 'pages/SortByTagPage',
                         params: {
                           tag: this.tagConverter(item.genre)
@@ -126,7 +125,7 @@ struct SortByTagPage {
                     .layoutWeight(1)
                     .alignItems(HorizontalAlign.End)
                     .onClick(() => {
-                      router.pushUrl({
+                      this.getUIContext().getRouter().pushUrl({
                         url: 'pages/SortByPlatformPage',
                         params: {
                           platform: item.platform

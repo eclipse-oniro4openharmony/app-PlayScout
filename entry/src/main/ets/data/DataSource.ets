@@ -1,5 +1,5 @@
 import { Game, GameDetails, Min_System_Requirements, ScreenShot } from '../model/game'
-import http from '@ohos.net.http'
+import { http } from '@kit.NetworkKit'
 
 const sortBy: string = 'alphabetical'
 const game_id: number = 452

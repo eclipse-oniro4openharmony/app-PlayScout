@@ -1,9 +1,6 @@
-import webview from '@ohos.web.webview';
-import hilog from '@ohos.hilog';
-import systemparameter from '@ohos.systemParameterEnhance';
-import router from '@ohos.router'
-import { BusinessError } from '@ohos.base';
 import { HttpErrorComponent, LoadComponent } from '../Component/components';
+import { webview } from '@kit.ArkWeb';
+import { hilog } from '@kit.PerformanceAnalysisKit';
 
 interface RouterParameters {
   url: string
@@ -35,7 +32,7 @@ struct Browser {
   }
 
   onPageShow() {
-    let params = router.getParams() as RouterParameters
+    let params = this.getUIContext().getRouter().getParams() as RouterParameters
     this.url = params.url
   }
 
@@ -80,7 +77,7 @@ struct Browser {
         .onPageEnd((event) => {
           hilog.info(0x0, '[Index]', `onPageEnd= ${JSON.stringify(event)}`)
         })
-        .onProgressChange((event) => {
+        .onProgressChange(() => {
           hilog.info(0x0, '[Index]', `onProgressChange`)
         })
         .onErrorReceive((event) => {
@@ -92,20 +89,6 @@ struct Browser {
     }
     .width('100%')
     .height('100%')
-  }
-
-  //执行其build()函数之前执行
-  aboutToAppear() {
-    this.isLoading = true
-    try {
-      let deviceType = systemparameter.getSync("const.build.characteristics")
-      // 修改为：default 也认为是 phone
-      if (deviceType === 'phone' || deviceType === 'default') {
-        this.isPhone = true
-      }
-    } catch (e) {
-      hilog.info(0x0, '[Index]', `getSync unexpected error: ${e}`)
-    }
   }
 }
 

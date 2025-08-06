@@ -1,7 +1,5 @@
-import router from '@ohos.router';
 import { GameDataSource } from '../data/DataSource';
 import { Game, GameDetails, Min_System_Requirements, ScreenShot } from '../model/game';
-import hilog from '@ohos.hilog';
 import { HttpErrorComponent, LoadComponent } from '../Component/components';
 
 interface RouterParams {
@@ -34,7 +32,7 @@ struct GameDetail {
 
   aboutToAppear(): void {
     this.isLoading = true;
-    const params: RouterParams = router.getParams() as RouterParams;
+    const params: RouterParams = this.getUIContext().getRouter().getParams() as RouterParams;
     this.game_id = params.game_id;
 
     const source = new GameDataSource();
@@ -164,7 +162,8 @@ struct GameDetail {
                   .width('80%')
                   .backgroundColor('#ff000000')
                   .onClick(() => {
-                    router.pushUrl({ url: 'pages/Browser'
+                    this.getUIContext().getRouter().pushUrl({
+                      url: 'pages/Browser'
                     , params: {
                         url: this.gameDetail.game_url
                       }
@@ -245,11 +244,12 @@ struct GameDetail {
                     Row({ space: 10 }) {
                       Text(`${this.gameDetail.platform}`)
                         .fontColor('#ff1e3fc6')
-                      Image(this.gameDetail.platform === "PC (Windows)" ? $r('app.media.icon_window') : $r('app.media.icon_browser'))
+                      Image(this.gameDetail.platform === "PC (Windows)" ? $r('app.media.icon_window') :
+                      $r('app.media.icon_browser'))
                         .width(20)
                     }
                     .onClick(() => {
-                      router.pushUrl({
+                      this.getUIContext().getRouter().pushUrl({
                         url: 'pages/SortByPlatformPage',
                         params: {
                           platform: this.gameDetail.platform
@@ -278,7 +278,7 @@ struct GameDetail {
                       .fontColor('#ff1e3fc6')
                   }
                   .onClick(() => {
-                    router.pushUrl({
+                    this.getUIContext().getRouter().pushUrl({
                       url: 'pages/SortByTagPage',
                       params: {
                         tag: this.gameDetail.genre
